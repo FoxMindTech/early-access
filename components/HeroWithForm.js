@@ -150,10 +150,10 @@ function HeroWithForm() {
         ) : (
           <div className="col-span-2 text-center pt-20 text-white">
             <h1 className="text-5xl md:text-6xl font-bold text-purple-400 mb-4">
-              You're on the list! 🎉
+              You are on the list! 🎉
             </h1>
             <p className="text-lg text-gray-300 max-w-xl mx-auto mb-3">
-              We'll notify you when we launch. <br />
+              We will notify you when we launch. <br />
               Expect{" "}
               <span className="text-white font-semibold">
                 early access

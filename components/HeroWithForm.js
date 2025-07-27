@@ -3,7 +3,13 @@
 import Lottie from "lottie-react";
 import { useState } from "react";
 import rocket from "../public/rocket.json";
+import Toast from "./Toast";
 function HeroWithForm() {
+  const [toast, setToast] = useState({
+    visible: false,
+    message: "",
+    type: "success",
+  });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -44,11 +50,34 @@ function HeroWithForm() {
     setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Form Data Submitted:", formData);
-      setIsSubmitted(true);
+      try {
+        const res = await fetch("/api/early-access", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          setToast({
+            visible: true,
+            message: "Submitted successfully!",
+            type: "success",
+          });
+          setIsSubmitted(true);
+        } else {
+          setToast({ visible: true, message: data.message, type: "error" });
+        }
+      } catch (err) {
+        setToast({
+          visible: true,
+          message: "Something went wrong.",
+          type: "error",
+        });
+      }
     }
   };
 
@@ -171,6 +200,12 @@ function HeroWithForm() {
           </div>
         )}
       </section>
+      <Toast
+        type={toast.type}
+        message={toast.message}
+        visible={toast.visible}
+        onClose={() => setToast({ ...toast, visible: false })}
+      />
     </div>
   );
 }

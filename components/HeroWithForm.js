@@ -105,7 +105,7 @@ function HeroWithForm() {
             </div>
 
             {/* Right Form */}
-            <div className="bg-black rounded-xl p-8 shadow-md w-full max-w-md mx-auto md:mx-0 border border-purple-800">
+            <div className=" rounded-xl p-8 shadow-md w-full max-w-md mx-auto md:mx-0 border-2 border-purple-800">
               <h2 className="text-2xl font-semibold mb-6 text-white text-center">
                 Join Waitlist
               </h2>
@@ -116,7 +116,7 @@ function HeroWithForm() {
                     type="text"
                     name="name"
                     placeholder="Full Name"
-                    className={`w-full px-4 py-3 rounded-md border bg-[#0f0f0f] text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
+                    className={`w-full px-4 py-3 rounded-md  bg-[#0f0f0f]/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
                       errors.name
                         ? "border-red-500 focus:ring-red-500"
                         : "border-gray-700 focus:ring-purple-500"
@@ -135,7 +135,7 @@ function HeroWithForm() {
                     type="text"
                     name="email"
                     placeholder="Email Address"
-                    className={`w-full px-4 py-3 rounded-md border bg-[#0f0f0f] text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
+                    className={`w-full px-4 py-3 rounded-md  bg-[#0f0f0f]/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
                       errors.email
                         ? "border-red-500 focus:ring-red-500"
                         : "border-gray-700 focus:ring-purple-500"
@@ -154,7 +154,7 @@ function HeroWithForm() {
                     type="tel"
                     name="number"
                     placeholder="Phone Number (optional)"
-                    className={`w-full px-4 py-3 rounded-md border bg-[#0f0f0f] text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
+                    className={`w-full px-4 py-3 rounded-md  bg-[#0f0f0f]/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
                       errors.number
                         ? "border-red-500 focus:ring-red-500"
                         : "border-gray-700 focus:ring-purple-500"

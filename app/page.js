@@ -5,6 +5,7 @@ import CountdownTimer from "@/components/CountdownTimer";
 import Faqs from "@/components/Faqs";
 
 import Hero from "@/components/Hero";
+import ImageScrollGallery from "@/components/ImageScrollGallary";
 
 export default function page() {
   return (
@@ -13,6 +14,7 @@ export default function page() {
         <CountdownTimer />
         <Hero />
       </div>
+      <ImageScrollGallery />
 
       <Faqs />
 

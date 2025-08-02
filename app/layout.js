@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="bg-black custom-bg-dark">
+      <body className="bg-black custom-bg-dark overflow-x-hidden">
         <StarsCanvas />
         <div className="relative z-20">
           <Header />

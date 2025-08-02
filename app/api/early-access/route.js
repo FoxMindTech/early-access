@@ -1,26 +1,71 @@
+//app/api/early-access/route.js
+
 import { connectDB } from "@/lib/db";
 import EarlyAccess from "@/modals/EarlyAccess";
+import {
+  isEmail,
+  escape,
+  trim,
+  normalizeEmail,
+  isMobilePhone,
+} from "validator";
 
 export async function POST(req) {
   try {
     await connectDB();
-    const { name, email, number } = await req.json();
+    const body = await req.json();
 
-    // Check if user already exists (lean for performance)
-    const existing = await EarlyAccess.findOne({ email }).lean();
+    // Trim, sanitize and normalize
+    const name = escape(trim(body?.name || ""));
+    const rawEmail = trim(body?.email || "");
+    const email = normalizeEmail(rawEmail, { gmail_remove_dots: false }) || "";
+    const number = escape(trim(body?.number || ""));
 
-    if (existing) {
+    // Validation
+    if (
+      !name ||
+      !email ||
+      !isEmail(email) ||
+      name.length > 100 ||
+      email.length > 100
+    ) {
+      return new Response(
+        JSON.stringify({ success: false, message: "Invalid input data." }),
+        { status: 400 }
+      );
+    }
+
+    // If number is provided, validate it
+    if (number && (number.length > 20 || !isMobilePhone(number, "any"))) {
+      return new Response(
+        JSON.stringify({ success: false, message: "Invalid phone number." }),
+        { status: 400 }
+      );
+    }
+
+    // Check for duplicate email
+    const exists = await EarlyAccess.findOne({ email }).lean();
+    if (exists) {
       return new Response(
         JSON.stringify({
           success: false,
           message: "This email is already registered.",
         }),
-        { status: 409 } // Conflict
+        { status: 409 }
       );
     }
 
-    // Save new entry
-    await EarlyAccess.create({ name, email, number });
+    try {
+      console.log("runnnnn 1");
+      const data = await EarlyAccess.create({
+        name,
+        email,
+        number: number || undefined,
+      });
+      console.log("runnnnn 2", data);
+    } catch (err) {
+      console.error("DB Create Error:", err);
+    }
 
     return new Response(
       JSON.stringify({
@@ -30,52 +75,33 @@ export async function POST(req) {
       { status: 201 }
     );
   } catch (error) {
-    // If duplicate is attempted due to race condition (e.g., in production)
     if (error.code === 11000) {
       return new Response(
-        JSON.stringify({
-          success: false,
-          message: "Email already exists",
-        }),
+        JSON.stringify({ success: false, message: "Email already exists." }),
         { status: 409 }
       );
     }
 
     return new Response(
-      JSON.stringify({ success: false, message: error.message }),
+      JSON.stringify({ success: false, message: "Server error." }),
       { status: 500 }
     );
   }
 }
 
-// import { connectDB } from "@/lib/db";
-// import EarlyAccess from "@/modals/EarlyAccess";
+// --- GET: Get Early Access Count ---
+export async function GET() {
+  try {
+    await connectDB();
+    const count = await EarlyAccess.countDocuments();
 
-// export async function POST(req) {
-//   try {
-//     await connectDB();
-//     const { name, email, number } = await req.json();
-
-//     // Save entry to DB
-//     console.log(name, email, number);
-//     const entry = new EarlyAccess({ name, email, number });
-//     await entry.save();
-
-//     return new Response(
-//       JSON.stringify({
-//         success: true,
-//         message: "Successfully joined the waitlist",
-//       }),
-//       {
-//         status: 201,
-//       }
-//     );
-//   } catch (error) {
-//     return new Response(
-//       JSON.stringify({ success: false, message: error.message }),
-//       {
-//         status: 500,
-//       }
-//     );
-//   }
-// }
+    return new Response(JSON.stringify({ success: true, count }), {
+      status: 200,
+    });
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ success: false, message: "Failed to fetch count." }),
+      { status: 500 }
+    );
+  }
+}

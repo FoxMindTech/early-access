@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import CTA from "./CTA";
 import { HiMenu, HiX } from "react-icons/hi";
+import SvgComponent from "./MySVGLogo";
+import MySVGLogo from "./MySVGLogo";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,12 +29,11 @@ function Header() {
       }`}
     >
       {/* Logo */}
-      <div
-        className={` text-purple-500
-          font-bold text-xl flex items-center`}
-      >
+      <div className={`flex items-center`}>
         {/* <span className={` rounded-full w-6 h-6 mr-2`}></span> */}
-        BeDonkey
+        <div className="h-auto  w-50">
+          <MySVGLogo />
+        </div>
       </div>
 
       {/* Desktop Nav */}

@@ -1,7 +1,7 @@
 function Badge() {
   return (
     <>
-      <div className="badge text-purple-500 flex justify-between items-center">
+      <div className="badge  flex justify-between items-center">
         Introducing BeDonkey{" "}
         <svg
           xmlns="http://www.w3.org/2000/svg"

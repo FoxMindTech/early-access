@@ -5,24 +5,55 @@ import { Minus, Plus } from "lucide-react";
 
 const faqs = [
   {
-    question: "How do I partner with BeDonkey?",
+    question: "What is BeDonkey?",
     answer:
-      "We’re actively onboarding trusted partners. Reach out via our contact form to learn more.",
+      "BeDonkey is a new video platform made for creators of AI-generated content — from storytelling and animation to memes, music, and more.",
   },
   {
-    question: "Does BeDonkey sell leads to 3rd parties?",
+    question: "Who can use BeDonkey?",
     answer:
-      "Absolutely not. We respect your privacy and only use your data for internal optimization.",
+      "Anyone! Whether you're a creator, viewer, or just curious about AI-generated content — BeDonkey is for you.",
   },
   {
-    question: "How can I buy inventory on BeDonkey partner sites?",
+    question: "What makes BeDonkey different from YouTube or TikTok?",
     answer:
-      "You can connect via our dashboard and start bidding instantly across all supported networks.",
+      "BeDonkey is built exclusively for AI-powered videos, with tools to upload, share, monetize, and remix content in ways other platforms don’t support.",
   },
   {
-    question: "Are there minimum spend requirements?",
+    question: "Is it free to join?",
     answer:
-      "There is no strict minimum. However, enterprise users may access exclusive packages starting at $500/mo.",
+      "Yes, joining BeDonkey is completely free. Early users may also get bonus features or coins.",
+  },
+  {
+    question: "What do I get if I sign up for early access?",
+    answer:
+      "You’ll be among the first to:\n\n* Claim your BeDonkey channel name\n* Earn early creator rewards (like 200 coins)\n* Test new features before public launch",
+  },
+  {
+    question: "Can I monetize my videos?",
+    answer:
+      "Yes! BeDonkey will support ad revenue, tipping, and other monetization tools for creators.",
+  },
+  {
+    question:
+      "Can I upload AI-generated videos from tools like Sora, Runway, or Pika?",
+    answer:
+      "Absolutely. BeDonkey is made for creators using tools like Sora, Pika, Runway, and more.",
+  },
+  {
+    question: "Can I publish to TikTok, YouTube, or other platforms too?",
+    answer:
+      "Yes — you’ll be able to cross-post your videos easily if you choose to.",
+  },
+  {
+    question: "When will the full platform launch?",
+    answer:
+      "We’re aiming to launch the full version soon. Early access users will get notified first!",
+  },
+  {
+    question: "What kind of content is allowed?",
+    answer:
+      "We support creative, original, and respectful AI content. No hate, abuse, or illegal material — we want a fun, safe space for everyone.",
   },
 ];
 
@@ -35,11 +66,11 @@ export default function Faqs() {
 
   return (
     <section
-      className="bg-[#0e0e10] w-full py-20 px-4   my-20  text-white font-inter"
+      className=" w-full py-20 px-4   my-20  text-white font-inter"
       id="faqs"
     >
       <div className="max-w-[1500px] mx-auto">
-        <div className="bg-[#0e0e10] text-white py-16 px-6">
+        <div className=" text-white py-16 px-6">
           <div className=" mx-auto">
             <p className="uppercase text-xs tracking-widest text-gray-400 mb-2">
               Quick Answers
@@ -64,10 +95,10 @@ export default function Faqs() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`rounded-2xl px-5 py-4 border transition-all duration-300 hover:border-purple-400 hover:bg-[#1a1a1a]/80 ${
+              className={`rounded-2xl px-5 py-4 border transition-all duration-300 hover:border-purple-400 hover:bg-[#1a1a1a]/60 ${
                 openIndex === index
-                  ? "bg-[#1A1A1A] border-purple-500"
-                  : "bg-[#0e0e0e] border-gray-800"
+                  ? "bg-[#1A1A1A]/20 border-purple-500"
+                  : "bg-[#0e0e0e]/20 border-gray-800"
               }`}
             >
               <button

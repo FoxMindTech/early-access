@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import StarsCanvas from "@/components/StarBackground";
 
 export const metadata = {
   title: "Create Next App",
@@ -23,10 +24,13 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>
-        <Header />
-        {children}
-        <Footer />
+      <body className="bg-black custom-bg-dark">
+        <StarsCanvas />
+        <div className="relative z-20">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

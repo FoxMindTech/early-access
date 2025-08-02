@@ -18,7 +18,7 @@ export default function Toast({ type = "success", message, visible, onClose }) {
   const types = {
     success: "bg-purple-500 text-white",
     error: "bg-red-500 text-white",
-    warning: "bg-yellow-500 text-black",
+    warning: "bg-purple-500 text-black",
   };
 
   if (!visible) return null;

@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import { useState } from "react";
 import rocket from "../public/rocket.json";
 import Toast from "./Toast";
+import SocialMedia from "./SocialMedia";
 function HeroWithForm() {
   const [toast, setToast] = useState({
     visible: false,
@@ -177,7 +178,7 @@ function HeroWithForm() {
             </div>
           </>
         ) : (
-          <div className="col-span-2 text-center pt-20 text-white">
+          <div className="col-span-2 text-center pt-10 text-white">
             <h1 className="text-5xl md:text-6xl font-bold text-purple-400 mb-4">
               You are on the list! 🎉
             </h1>
@@ -191,10 +192,13 @@ function HeroWithForm() {
               a <span className="text-white font-semibold">featured badge</span>
               , and more perks tailored for our early creators.
             </p>
-            <div className="flex justify-center">
-              <div className="w-80 h-80  flex justify-center items-center text-6xl ">
+            <div className="flex justify-center flex-col items-center">
+              <div className="w-80 h-50  flex justify-center items-center text-6xl ">
                 {/* <DotLottieReact src={bird} loop autoplay /> */}
                 <Lottie animationData={rocket} loop autoplay />
+              </div>
+              <div className="relative z-20">
+                <SocialMedia />
               </div>
             </div>
           </div>

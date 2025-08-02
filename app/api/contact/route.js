@@ -1,13 +1,42 @@
 import { connectDB } from "@/lib/db";
 import { Contact } from "@/modals/Contact";
+import validator from "validator";
+
+function sanitizeInput(input) {
+  return validator.escape(validator.trim(input));
+}
 
 export async function POST(req) {
   await connectDB();
-  const body = await req.json();
+
+  const { name, email, message, number } = await req.json();
 
   try {
-    const contact = new Contact(body);
+    // Validate & sanitize
+    if (!name || !email || !message) {
+      return Response.json(
+        { success: false, error: "All fields are required" },
+        { status: 400 }
+      );
+    }
+
+    if (!validator.isEmail(email)) {
+      return Response.json(
+        { success: false, error: "Invalid email format" },
+        { status: 400 }
+      );
+    }
+
+    const sanitizedData = {
+      name: sanitizeInput(name),
+      email: sanitizeInput(email),
+      message: sanitizeInput(message),
+      number: number ? sanitizeInput(number) : "", // Optional
+    };
+
+    const contact = new Contact(sanitizedData);
     await contact.save();
+
     return Response.json({ success: true, contact });
   } catch (error) {
     return Response.json(

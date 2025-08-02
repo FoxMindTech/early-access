@@ -8,10 +8,11 @@ import Hero from "@/components/Hero";
 
 export default function page() {
   return (
-    <main className="min-h-screen bg-black text-white  py-10 flex flex-col items-center">
-      <Hero />
-
-      <CountdownTimer />
+    <main className="min-h-screen  text-white  flex flex-col items-center relative z-20">
+      <div className=" ">
+        <CountdownTimer />
+        <Hero />
+      </div>
 
       <Faqs />
 

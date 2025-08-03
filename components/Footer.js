@@ -22,7 +22,7 @@ const Footer = () => {
             Contact
           </a> */}
           <div className="text-center my-8">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
               Join the <span className="text-purple-500">BeDonkey</span>{" "}
               Community
             </h2>

@@ -15,11 +15,14 @@ function Hero() {
           <div className="text-4xl md:text-6xl font-bold leading-tight mb-6 space-font">
             <HeroHeading />
           </div>
-          <p className="text-lg text-gray-300 mb-10">
-            Join early and receive{" "}
-            <span className="text-white font-bold">200 free coins</span>,{" "}
-            <span className="text-white font-bold">monetization access</span>,
-            and exclusive creator benefits.
+          <p className="text-lg text-gray-300 mb-10 space-fonts">
+            Be one of the first to join the AI video revolution.,
+            <span className="text-white font-bold">
+              {" "}
+              Get 200 free coins
+            </span>,{" "}
+            <span className="text-white font-bold"> instant monetization,</span>
+            and exclusive early-creator perks.
           </p>
           <div className="flex flex-col items-center sm:flex-row justify-center gap-4">
             <div className="w-70 ">

@@ -66,7 +66,7 @@ export default function Faqs() {
 
   return (
     <section
-      className=" w-full py-20 px-4   my-20  text-white font-inter"
+      className=" w-full py-20 px-4 max-w-7xl  my-20  text-white font-inter"
       id="faqs"
     >
       <div className="max-w-[1500px] mx-auto">
@@ -95,17 +95,17 @@ export default function Faqs() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`rounded-2xl px-5 py-4 border transition-all duration-300 hover:border-purple-400 hover:bg-[#1a1a1a]/60 ${
+              className={`rounded-2xl cursor-pointer px-5 py-4 border transition-all duration-300 hover:border-purple-400 hover:bg-[#1a1a1a]/60 ${
                 openIndex === index
                   ? "bg-[#1A1A1A]/20 border-purple-500"
                   : "bg-[#0e0e0e]/20 border-gray-800"
               }`}
             >
               <button
-                className="w-full flex justify-between items-center text-left"
+                className="w-full flex justify-between  cursor-pointeritems-center text-left"
                 onClick={() => toggle(index)}
               >
-                <span className="text-white font-medium text-base md:text-lg font-space">
+                <span className="text-white font-medium  text-[30px] font-space">
                   {faq.question}
                 </span>
                 <span className="text-purple-500">
@@ -124,7 +124,7 @@ export default function Faqs() {
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <p className="text-sm md:text-base text-gray-400 font-inter">
+                <p className="text-[20px] text-white font-inter">
                   {faq.answer}
                 </p>
               </div>

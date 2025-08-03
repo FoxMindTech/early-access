@@ -5,7 +5,9 @@ function page() {
   return (
     <>
       <HeroWithForm />
-      <Faqs />
+      <div className="flex justify-center items-center">
+        <Faqs />
+      </div>
     </>
   );
 }

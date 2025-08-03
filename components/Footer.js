@@ -26,7 +26,7 @@ const Footer = () => {
               Join the <span className="text-purple-500">BeDonkey</span>{" "}
               Community
             </h2>
-            <p className="mt-2 text-base md:text-lg text-gray-600 dark:text-gray-300">
+            <p className="mt-2 text-base md:text-lg text-white">
               Follow us on social media and be part of the AI video revolution.
             </p>
           </div>

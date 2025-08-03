@@ -67,7 +67,7 @@ const CountdownTimer = () => {
   return (
     <div className="w-full text-white py-8 mt-10">
       <div className="max-w-[1500px] mx-auto px-6 md:px-12 text-center">
-        <h2 className="text-3xl w-4xl md:text-5xl font-extrabold mb-4">
+        <h2 className="text-3xl max-w-4xl w-full md:text-5xl font-extrabold mb-4">
           🎉 Early Access Is Almost Here..<br></br>Don’t Miss the Drop!
         </h2>
         {/* <p className="text-lg md:text-xl text-neutral-200 mb-10">

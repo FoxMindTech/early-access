@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/br.png?v=1" />
+        <link rel="icon" href="/br.png?v=2" />
       </head>
       <body className="bg-black custom-bg-dark overflow-x-hidden">
         {/* Optional animated background */}

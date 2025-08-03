@@ -7,9 +7,6 @@ import StarsCanvas from "@/components/StarBackground";
 export const metadata = {
   title: "BeDonkey - Video Platform",
   description: "Discover, share, and enjoy videos with the BeDonkey community.",
-  icons: {
-    icon: "/br.png?v=1", // Favicon path for all pages
-  },
 };
 
 export default function RootLayout({ children }) {
@@ -22,11 +19,11 @@ export default function RootLayout({ children }) {
           href="https://fonts.gstatic.com"
           crossOrigin=""
         />
-        <link rel="icon" href="/br.png?v=1" />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" href="/br.png?v=1" />
       </head>
       <body className="bg-black custom-bg-dark overflow-x-hidden">
         {/* Optional animated background */}
